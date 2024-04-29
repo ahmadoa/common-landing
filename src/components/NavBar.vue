@@ -6,8 +6,8 @@
     <div v-if="isMobile">
       <DropdownMenu>
         <DropdownMenuTrigger
-          ><VIcon name="gi-hamburger-menu" scale="1.3"
-        /></DropdownMenuTrigger>
+          ><Button variant="outline">Menu</Button></DropdownMenuTrigger
+        >
         <DropdownMenuContent class="text-secondary-foreground">
           <DropdownMenuItem>
             <router-link to="/Login" active-class="active">Log In</router-link>
@@ -58,6 +58,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "@vueuse/core";
 
 const isMobile = useMediaQuery("(max-width: 768px)");
