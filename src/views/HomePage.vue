@@ -31,7 +31,7 @@
           Please enter the invitation password that you received from USB
           Certification.
         </p>
-        <form @submit="onSubmit" class="w-5/6 md:w-4/6 flex flex-col">
+        <form class="w-5/6 md:w-4/6 flex flex-col">
           <div class="w-full h-10 flex">
             <Input
               v-bind="passwordAttrs"
@@ -47,6 +47,7 @@
                 :disabled="errors.password || !password"
               >
                 <Button
+                  type="button"
                   :disabled="errors.password || !password"
                   class="bg-foreground text-lg w-full h-full rounded-l-none rounded-r-xl"
                   >Let’s go</Button
@@ -147,7 +148,6 @@
                     <Button
                       type="reset"
                       variant="outline"
-                      class="text-foreground border-foreground rounded-xl"
                       @click="
                         resetForm({
                           values: {
@@ -157,12 +157,16 @@
                           },
                         })
                       "
+                      class="text-foreground border-foreground rounded-xl"
                     >
                       Cancel
                     </Button></DialogClose
                   >
 
-                  <Button type="submit" class="bg-foreground rounded-xl"
+                  <Button
+                    @click="onSubmit"
+                    type="submit"
+                    class="bg-foreground rounded-xl"
                     >Accept Terms & Get Started</Button
                   >
                 </DialogFooter>
@@ -221,9 +225,8 @@ const [email, emailAttrs] = defineField("email");
 const [password, passwordAttrs] = defineField("password");
 const [fullname, fullnameAttrs] = defineField("fullname");
 
-const onSubmit = handleSubmit((values) => {
-  console.log(values);
+const onSubmit = handleSubmit(async (values) => {
+  await submitData(values);
+  resetForm();
 });
 </script>
-
-<style scoped></style>

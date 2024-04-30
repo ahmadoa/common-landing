@@ -10,9 +10,9 @@ export const useCredentialsStore = defineStore("credentials", () => {
 
   // submit & save in local storage if all properties are found
   function submitData(values) {
-    data.email.value = values.email;
-    data.password.value = values.password;
-    data.fullname.value = values.fullname;
+    data.email = values.email;
+    data.password = values.password;
+    data.fullname = values.fullname;
     localStorage.setItem(
       "userData",
       JSON.stringify({
