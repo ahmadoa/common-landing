@@ -5,9 +5,9 @@
     </router-link>
     <div v-if="isMobile">
       <DropdownMenu>
-        <DropdownMenuTrigger
-          ><Button variant="outline">Menu</Button></DropdownMenuTrigger
-        >
+        <DropdownMenuTrigger>
+          <font-awesome-icon icon="bars" class="text-lg text-foreground" />
+        </DropdownMenuTrigger>
         <DropdownMenuContent class="text-secondary-foreground">
           <DropdownMenuItem>
             <router-link to="/Login" active-class="active">Log In</router-link>

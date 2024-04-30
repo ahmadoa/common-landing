@@ -195,7 +195,6 @@ import {
 
 import { useCredentialsStore } from "@/stores/credentials";
 import { useForm } from "vee-validate";
-import { toTypedSchema } from "@vee-validate/yup";
 import * as yup from "yup";
 
 const store = useCredentialsStore();
